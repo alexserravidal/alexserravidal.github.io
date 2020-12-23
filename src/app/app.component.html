@@ -1,23 +1,31 @@
 <div class="container-fluid">
   <div class="container d-flex flex-column justify-content-between">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end languages-menu">
+        <div class="py-2 px-3">CA</div>
+        <div class="py-2 px-3">ES</div>
+        <div class="py-2 px-3">EN</div>
+      </div>
+    </div>
     <div class="row h-100">
       <div class="col-12">
-        <div class="console pt-2 pt-sm-5">
+        <div class="console pt-2">
           <header>
             <p>guest@alexserravidal</p>
           </header>
           <div class="consolebody">
             <div class="d-flex">
               <div class="me-3"><span>></span></div>
-              <app-typing-effect [text]="'Hello, I\'m Alex Serra'"
-                                 [showCursor]="false"
-                                 (finished)="onIntroTextFirstPhraseFinished()">
+              <app-typing-effect  *ngIf="firstPhraseTexti18n"
+                                  [text]="firstPhraseTexti18n"
+                                  [showCursor]="false"
+                                  (finished)="onIntroTextFirstPhraseFinished()">
               </app-typing-effect>
             </div>
             <div class="d-flex">
               <div class="me-3" *ngIf="firstPhraseTypingFinished"><span>></span></div>
-              <app-typing-effect  *ngIf="startTypingSecondPhrase"
-                                  [text]="'I\'m a full-stack web developer'"
+              <app-typing-effect  *ngIf="startTypingSecondPhrase && secondPhraseTexti18n"
+                                  [text]="secondPhraseTexti18n"
                                   [showCursor]="false"
                                   (finished)="onIntroTextSecondPhraseFinished()">
               </app-typing-effect>
@@ -29,13 +37,13 @@
       </div>
     </div>
 
-    <div class="button-row-container h-100">
+    <div class="button-row-container h-100 pt-3">
       <div class="row button-row h-100">
         <div class="col-xl-12 d-flex justify-content-center  align-items-center h-100">
           <div>
             <button type="button" class="btn-vmw draw"
                     [disabled]="!isVmwButtonEnabled">
-              View my work
+              {{ 'APP.VIEW_WORK' | translate }}
             </button>
           </div>
         </div>
