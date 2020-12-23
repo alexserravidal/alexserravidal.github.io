@@ -1,0 +1,123 @@
+@import "../variables";
+
+.container-fluid {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  background: linear-gradient(165deg, rgba(0, 60, 125, 0.04) 50%, #fff 50%);
+
+  .container {
+    height: 100%;
+  }
+}
+
+.button-row-container {
+  position: relative;
+}
+
+.bm-img {
+  height: 200px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.intro-text-col {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.btn-vmw {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  // Using inset box-shadow instead of border for sizing simplicity
+  box-shadow: inset 0 0 0 2px transparent;
+  color: transparent;
+  font-size: 40px;
+  font-weight: 600;
+
+  // Required, since we're setting absolute on pseudo-elements
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.draw {
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+
+  &::before,
+  &::after {
+    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+    border: 4px solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  // This covers the top & right borders (expands right, then down)
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  // And this the bottom & left borders (expands left, then up)
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &:enabled {
+    color: $accent-color;
+  }
+
+  // Hover styles
+  &:enabled::before,
+  &:enabled::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:enabled::before {
+    border-top-color: $accent-color; // Make borders visible
+    border-right-color: $accent-color;
+    transition:
+      width 0.25s ease-out, // Width expands first
+      height 0.25s ease-out 0.25s; // And then height
+  }
+
+  &:enabled::after {
+    border-bottom-color: $accent-color; // Make borders visible
+    border-left-color: $accent-color;
+    transition:
+      border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+      width 0.25s ease-out 0.5s, // And then exanding width
+      height 0.25s ease-out 0.75s; // And finally height
+  }
+
+  &:enabled:hover {
+    background-color: $accent-color;
+    color: $accent-color-contrast;
+    transition:
+      color 0.5s,
+      background-color 0.5s;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .bm-img {
+    height: 450px;
+  }
+}

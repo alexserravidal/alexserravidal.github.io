@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: raleway;
+  src: url(assets/font/Raleway-VariableFont_wght.ttf) format("opentype");
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'raleway', 'arial', sans-serif;
+}

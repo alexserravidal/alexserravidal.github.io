@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/utils.scss"
             ],
             "scripts": []
           },
@@ -87,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -120,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "alexserravidal"
+  "defaultProject": "alexserravidal",
+  "cli": {
+    "analytics": "f9210cfa-2024-4c79-9ecf-a9c52ca9719b"
+  }
 }
