@@ -1,10 +1,13 @@
 <div class="container-fluid">
   <div class="container d-flex flex-column justify-content-between">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-end languages-menu">
-        <div class="py-2 px-3">CA</div>
-        <div class="py-2 px-3">ES</div>
-        <div class="py-2 px-3">EN</div>
+    <div class="row pt-2">
+      <div class="col-12 d-flex justify-content-center justify-content-sm-end lang-menu">
+        <button type="button" class="lang-menu__item my-2 mx-3"
+                [class.selected]="lang.code === getCurrentLanguage()"
+                *ngFor="let lang of languages"
+                (click)="setCurrentLanguage(lang.code)">
+          {{ lang.code | uppercase }}
+        </button>
       </div>
     </div>
     <div class="row h-100">

@@ -9,7 +9,17 @@ import {concatMap, delay, map} from 'rxjs/operators';
 })
 export class TypingEffectComponent implements OnInit {
   _textFinishedPrinting: boolean = false;
-  @Input() text: string;
+
+  private _text: string;
+  @Input() set text(text: string) {
+    this._text = text;
+
+    if (this._textFinishedPrinting) this.alreadyShowedText = text;
+    else this.resetTypingEffect();
+  }
+  get text(): string {
+    return this._text;
+  }
 
   /// CURSOR VISUALIZATION
   @Input() showCursor: boolean = true;
@@ -20,8 +30,17 @@ export class TypingEffectComponent implements OnInit {
 
   typeWritingObservable: Observable<string>;
 
+  /// SUBSCRIPTIONS
+  sTypeWritingObservable: Subscription;
+
   constructor() {}
   ngOnInit(): void {
+    this.resetTypingEffect();
+  }
+
+  resetTypingEffect(): void {
+    if (this.sTypeWritingObservable) this.sTypeWritingObservable.unsubscribe();
+    this.alreadyShowedText = "";
     this.typeWritingObservable = from(this.text).pipe(
       concatMap(character => of(character).pipe(
         map((char: string) => {
@@ -30,7 +49,7 @@ export class TypingEffectComponent implements OnInit {
         delay(50))),
     );
 
-    this.typeWritingObservable.subscribe((char: string) => {
+    this.sTypeWritingObservable = this.typeWritingObservable.subscribe((char: string) => {
       this.alreadyShowedText += char;
     }, () => {}, () => {
       this._textFinishedPrinting = true;

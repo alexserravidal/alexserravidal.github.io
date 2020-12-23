@@ -28,8 +28,21 @@
   font-weight: bold;
 }
 
-.languages-menu {
+.lang-menu {
   font-weight: 600;
+
+  &__item {
+    border: 1px solid black;
+    border-radius: 5px;
+    background: none;
+    &:hover, &.selected {
+      background-color: $accent-color;
+      color: $accent-color-contrast;
+      transition:
+        background-color 0.5s,
+        color 0.5s;
+    }
+  }
 }
 
 .btn-vmw {

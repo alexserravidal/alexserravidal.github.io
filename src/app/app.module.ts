@@ -1,15 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {TypingEffectModule} from './typing-effect/typing-effect.module';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {CoreModule} from './core/core.module';
+import {TranslateLocalstorageService} from './core/services/translate-localstorage.service';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export function setLanguageFromLocalStorage(translateService: TranslateService) {
+  return () => {
+    translateService.setDefaultLang('ca');
+    let lsLang: string = localStorage.getItem("LANG");
+    console.log("APP INITIALIZR", lsLang);
+    if (lsLang) translateService.use(lsLang);
+  }
 }
 
 @NgModule({
@@ -26,9 +41,21 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    CoreModule,
     TypingEffectModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: TranslateService,
+      useClass: TranslateLocalstorageService
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: setLanguageFromLocalStorage,
+      deps: [TranslateService],
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
