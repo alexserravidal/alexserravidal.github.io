@@ -20,9 +20,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 export function setLanguageFromLocalStorage(translateService: TranslateService) {
   return () => {
-    translateService.setDefaultLang('ca');
+    translateService.setDefaultLang('es');
     let lsLang: string = localStorage.getItem("LANG");
-    console.log("APP INITIALIZR", lsLang);
     if (lsLang) translateService.use(lsLang);
   }
 }

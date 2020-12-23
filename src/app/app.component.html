@@ -3,7 +3,7 @@
     <div class="row pt-2">
       <div class="col-12 d-flex justify-content-center justify-content-sm-end lang-menu">
         <button type="button" class="lang-menu__item my-2 mx-3"
-                [class.selected]="lang.code === getCurrentLanguage()"
+                [class.selected]="lang.code == selectedLang"
                 *ngFor="let lang of languages"
                 (click)="setCurrentLanguage(lang.code)">
           {{ lang.code | uppercase }}

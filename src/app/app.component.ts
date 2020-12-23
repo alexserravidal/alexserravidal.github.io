@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 import {of, Subscription} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {LanguagesService} from './core/services/languages.service';
 import {Language} from './core/resources/language';
 
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // LANGS
   languages: Language[] = [];
+  selectedLang: string = this._translate.defaultLang;
 
   firstPhraseTexti18n: string;
   secondPhraseTexti18n: string;
@@ -28,10 +29,15 @@ export class AppComponent implements OnInit, OnDestroy {
   /// SUBSCRIPTIONS
   sFirstPhraseText: Subscription;
   sSecondPhraseText: Subscription;
+  sLangChange: Subscription;
 
   ngOnInit(): void {
     this._languages.getLanguages().subscribe((langs: Language[]) => {
       this.languages = langs;
+    });
+
+    this.sLangChange = this._translate.onLangChange.subscribe((lang: LangChangeEvent) => {
+      this.selectedLang = lang.lang;
     });
 
     this.sFirstPhraseText = this._translate.stream('APP.INTRO_MSG_P1').subscribe((text: string) => {
@@ -46,6 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.sFirstPhraseText) this.sFirstPhraseText.unsubscribe();
     if (this.sSecondPhraseText) this.sSecondPhraseText.unsubscribe();
+    if (this.sLangChange) this.sLangChange.unsubscribe();
   }
 
   onIntroTextFirstPhraseFinished(): void {
@@ -64,10 +71,6 @@ export class AppComponent implements OnInit, OnDestroy {
     ).subscribe(() => {
       this.isVmwButtonEnabled = true;
     })
-  }
-
-  getCurrentLanguage(): string {
-    return this._translate.currentLang;
   }
 
   setCurrentLanguage(lang: string) {
