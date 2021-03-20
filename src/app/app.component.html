@@ -12,11 +12,13 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
-<div class="header w-100 px-4 my-4">
-  <app-header [languages]="languages"
-              [language]="selectedLang"
-              (languageChange)="setCurrentLanguage($event.code)">
-  </app-header>
+<div class="header-container bg-white shadow-sm border-bottom w-100">
+  <div class="header px-4 my-2">
+    <app-header [languages]="languages"
+                [language]="selectedLang"
+                (languageChange)="setCurrentLanguage($event.code)">
+    </app-header>
+  </div>
 </div>
 
 <div class="section">

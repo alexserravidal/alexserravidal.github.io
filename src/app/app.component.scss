@@ -1,8 +1,10 @@
 @import "../variables";
 
-.header {
+.header-container {
   position: fixed;
   top: 0;
+}
+.header {
   height: 40px;
 }
 
