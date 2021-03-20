@@ -4,8 +4,30 @@
   src: url(assets/font/Raleway-VariableFont_wght.ttf) format("opentype");
 }
 
+@font-face {
+  font-family: porkys;
+  src: url(assets/font/PORKYS_.TTF) format("opentype");
+}
+
+@font-face {
+  font-family: hunters;
+  src: url(assets/font/Hunters.otf) format("opentype");
+}
+
 html, body {
   height: 100%;
   width: 100%;
   font-family: 'raleway', 'arial', sans-serif;
+}
+
+.title {
+  font-size: 250px;
+  font-family: hunters, 'arial', sans-serif;
+  text-align: center;
+  height: 350px;
+}
+
+.subtitle {
+  font-size: 50px;
+  text-align: center;
 }

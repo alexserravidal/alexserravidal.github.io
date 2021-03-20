@@ -4,11 +4,16 @@
   height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background: linear-gradient(165deg, rgba(0, 60, 125, 0.04) 50%, #fff 50%);
+  background-image: url("../assets/img/background-con-niebla.png");
+  background-size: cover;
 
   .container {
     height: 100%;
   }
+}
+
+.subtitle-border {
+  border-top: 3px solid #212529;
 }
 
 .button-row-container {
