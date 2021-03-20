@@ -12,6 +12,11 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CoreModule} from './core/core.module';
 import {TranslateLocalstorageService} from './core/services/translate-localstorage.service';
+import {CoverComponent} from './component/cover.component/cover.component';
+import {HeaderComponent} from './component/header.component/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -28,7 +33,9 @@ export function setLanguageFromLocalStorage(translateService: TranslateService) 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoverComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,11 @@ export function setLanguageFromLocalStorage(translateService: TranslateService) 
       }
     }),
     CoreModule,
-    TypingEffectModule
+    TypingEffectModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

@@ -1,0 +1,43 @@
+<div class="container-fluid header h-100">
+  <div class="row h-100">
+    <div class="col-12 h-100 d-flex justify-content-between">
+      <div class="left d-flex w-100">
+        L
+      </div>
+      <div class="mid d-flex w-100">
+        M
+      </div>
+      <div class="header__contact d-flex justify-content-end w-100">
+        <div class="header__contact__button">
+          <a href="mailto:alexsv1996@gmail.com">
+            <img src="assets/icon/Gmail_Icon.svg"
+                 class="h-100">
+          </a>
+        </div>
+      </div>
+      <div class="header__settings d-flex">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <form [formGroup]="form">
+    <div class="d-flex flex-column px-3 py-2"
+         (click)="$event.preventDefault(); $event.stopPropagation();">
+      <b class="mb-2">Idioma</b>
+      <mat-form-field>
+        <mat-label>Idioma</mat-label>
+        <mat-select formControlName="language">
+          <mat-option *ngFor="let language of languages"
+                      [value]="language.code">
+            {{ language.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-menu>

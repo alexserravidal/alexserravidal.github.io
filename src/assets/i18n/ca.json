@@ -3,5 +3,8 @@
     "INTRO_MSG_P1": "Hola, sóc l'Alex Serra",
     "INTRO_MSG_P2": "Sóc un desenvolupador web full-stack",
     "VIEW_WORK": "Veure el meu treball"
+  },
+  "CoverComponent": {
+    "SUBTITLE": "Desenvolupador web full-stack"
   }
 }

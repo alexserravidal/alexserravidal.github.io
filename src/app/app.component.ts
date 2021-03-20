@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 import {of, Subscription} from 'rxjs';
-import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {TranslateService} from '@ngx-translate/core';
 import {LanguagesService} from './core/services/languages.service';
 import {Language} from './core/resources/language';
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // LANGS
   languages: Language[] = [];
-  selectedLang: string = this._translate.defaultLang;
+  selectedLang: Language;
 
   firstPhraseTexti18n: string;
   secondPhraseTexti18n: string;
@@ -36,8 +36,9 @@ export class AppComponent implements OnInit, OnDestroy {
       this.languages = langs;
     });
 
-    this.sLangChange = this._translate.onLangChange.subscribe((lang: LangChangeEvent) => {
-      this.selectedLang = lang.lang;
+    this.sLangChange = this._languages.onLangChange().subscribe((lang: Language) => {
+      console.log(lang);
+      this.selectedLang = lang;
     });
 
     this.sFirstPhraseText = this._translate.stream('APP.INTRO_MSG_P1').subscribe((text: string) => {
@@ -74,6 +75,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   setCurrentLanguage(lang: string) {
-    this._translate.use(lang);
+    this._languages.use(lang);
   }
 }

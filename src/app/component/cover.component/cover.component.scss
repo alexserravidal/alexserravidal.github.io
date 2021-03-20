@@ -1,0 +1,14 @@
+.container-fluid {
+  background-image: url("../../../assets/img/background-con-niebla.png");
+  background-size: cover;
+
+  .container {
+    height: 100%;
+  }
+}
+
+.subtitle-border {
+  border-top: 3px solid #212529;
+  border-radius: 50px;
+  height: 7px;
+}

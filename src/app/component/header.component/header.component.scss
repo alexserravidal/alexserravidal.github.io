@@ -1,0 +1,39 @@
+@import "src/variables";
+
+.header {
+  &__contact {
+    &__button {
+      height: 40px;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    a {
+      height: 30px;
+      transition: height 0.3s;
+    }
+    a:hover {
+      height: 40px;
+      transition: height 0.3s;
+    }
+  }
+
+  &__settings {
+    margin-left: 100px;
+    button {
+      background-color: $grey;
+    }
+    button:hover {
+      background-color: $grey-dark;
+    }
+  }
+}
+
+.left {
+  color: transparent;
+}
+
+.mid {
+  color: transparent;
+}

@@ -1,3 +1,38 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$alexserravidal-primary: mat-palette($mat-indigo);
+$alexserravidal-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$alexserravidal-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$alexserravidal-theme: mat-light-theme((
+  color: (
+    primary: $alexserravidal-primary,
+    accent: $alexserravidal-accent,
+    warn: $alexserravidal-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($alexserravidal-theme);
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: raleway;
@@ -20,6 +55,12 @@ html, body {
   font-family: 'raleway', 'arial', sans-serif;
 }
 
+.section {
+  height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+}
+
 .title {
   font-size: 250px;
   font-family: hunters, 'arial', sans-serif;
@@ -30,4 +71,11 @@ html, body {
 .subtitle {
   font-size: 50px;
   text-align: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button:focus {
+  outline: none;
 }
