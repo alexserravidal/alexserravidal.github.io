@@ -1,6 +1,6 @@
 <div *ngIf="typeWritingObservable">
   <span class="cursor"
         [class.no-cursor] = "!showCursor || (!showCursorAfterFinish && _textFinishedPrinting)">
-    <b>{{ alreadyShowedText }}</b>
+    {{ alreadyShowedText }}
   </span>
 </div>

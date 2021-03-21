@@ -1,4 +1,4 @@
-
+@import "variables";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -49,10 +49,16 @@ $alexserravidal-theme: mat-light-theme((
   src: url(assets/font/Hunters.otf) format("opentype");
 }
 
+@font-face {
+  font-family: RetroSignature;
+  src: url(assets/font/RetroSignature.otf) format("opentype");
+}
+
 html, body {
   height: 100%;
   width: 100%;
   font-family: 'raleway', 'arial', sans-serif;
+  font-size: 20px;
 }
 
 .section {
@@ -67,8 +73,13 @@ html, body {
 }
 
 .subtitle {
+  font-family: RetroSignature, 'arial', sans-serif;
   font-size: 50px;
   text-align: center;
+}
+
+.bg-grey {
+  background-color: $grey;
 }
 
 html, body { height: 100%; }

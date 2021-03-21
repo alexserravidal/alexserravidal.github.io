@@ -17,6 +17,7 @@ import {HeaderComponent} from './component/header.component/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AboutComponent} from './component/about.component/about.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -35,7 +36,8 @@ export function setLanguageFromLocalStorage(translateService: TranslateService) 
   declarations: [
     AppComponent,
     CoverComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

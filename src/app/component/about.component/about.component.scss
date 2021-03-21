@@ -1,0 +1,37 @@
+@import "src/variables";
+
+.diagonal-box {
+  position: relative;
+  padding-bottom: 300px;
+  .diagonal-box-bg {
+    height: 200px;
+    background-color: $accent;
+    transform: skewY(-3deg);
+  }
+  .diagonal-box-bg-white {
+    height: 200px;
+    background-color: white;
+    transform: skewY(-3deg);
+  }
+
+  .diagonal-box-content {
+    position: absolute;
+    top: 100px;
+    min-height: 200px;
+    width: 100%;
+    background-color: $accent;
+    padding-bottom: 200px;
+  }
+  .diagonal-box-content-white {
+    position: absolute;
+    top: 100px;
+    min-height: 200px;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 200px;
+  }
+}
+
+.buttons-column {
+  flex-basis: min-content;
+}
