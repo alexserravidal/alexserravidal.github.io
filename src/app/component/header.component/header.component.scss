@@ -1,9 +1,33 @@
 @import "src/variables";
 
 .header {
+  &__logo {
+    img {
+      height: 48px;
+    }
+  }
+
+  &__menu {
+    ul {
+      list-style-type: none;
+    }
+    li {
+      border-bottom: 4px solid transparent;
+      cursor: pointer;
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+    }
+    li:hover {
+      color: $accent;
+      border-bottom: 4px solid $accent;
+    }
+  }
+
   &__contact {
     &__button {
-      height: 40px;
+      height: 35px;
       width: 80px;
       display: flex;
       justify-content: center;
@@ -14,7 +38,7 @@
       transition: height 0.3s;
     }
     a:hover {
-      height: 40px;
+      height: 35px;
       transition: height 0.3s;
     }
   }

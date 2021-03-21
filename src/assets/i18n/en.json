@@ -4,6 +4,9 @@
     "INTRO_MSG_P2": "I'm a full-stack web developer",
     "VIEW_WORK": "View my work"
   },
+  "HeaderComponent": {
+    "LANGUAGE": "Language"
+  },
   "CoverComponent": {
     "SUBTITLE": "Full-stack web developer"
   }

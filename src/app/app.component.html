@@ -13,16 +13,27 @@
 <!--  </div>-->
 <!--</div>-->
 <div class="header-container bg-white shadow-sm border-bottom w-100">
-  <div class="header px-4 my-2">
+  <div class="header px-4 w-100">
     <app-header [languages]="languages"
                 [language]="selectedLang"
-                (languageChange)="setCurrentLanguage($event.code)">
+                (languageChange)="setCurrentLanguage($event.code)"
+                style="'width: 100%'">
     </app-header>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="cover">
   <app-cover></app-cover>
+</div>
+
+<div class="section" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <span class="title" style="font-size: 80px">About</span>
+      </div>
+    </div>
+  </div>
 </div>
 <!--    <div class="row h-100">-->
 <!--      <div class="col-12">-->

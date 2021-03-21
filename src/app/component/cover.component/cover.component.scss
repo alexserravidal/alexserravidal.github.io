@@ -1,3 +1,10 @@
+@import "src/variables";
+
+.title {
+  font-size: 250px;
+  height: 350px;
+}
+
 .container-fluid {
   background-image: url("../../../assets/img/background-con-niebla.png");
   background-size: cover;
@@ -11,4 +18,33 @@
   border-top: 3px solid #212529;
   border-radius: 50px;
   height: 7px;
+}
+
+.expand-button-col {
+  height: 150px;
+  max-height: 150px;
+}
+
+.expand-button {
+  background-color: $accent;
+  color: white;
+  height: 150px;
+  width: 150px;
+  animation-name: grow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  .mat-icon {
+    width: 150px;
+    font-size: 150px;
+  }
+}
+.expand-button:hover {
+  background-color: $accent-dark;
+}
+
+@keyframes grow {
+  0% { height: 150px; width: 150px}
+  50% { height: 155px; width: 155px}
+  100% { height: 150px; width: 150px}
 }

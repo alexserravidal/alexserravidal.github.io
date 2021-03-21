@@ -4,6 +4,9 @@
     "INTRO_MSG_P2": "Sóc un desenvolupador web full-stack",
     "VIEW_WORK": "Veure el meu treball"
   },
+  "HeaderComponent": {
+    "LANGUAGE": "Idioma"
+  },
   "CoverComponent": {
     "SUBTITLE": "Desenvolupador web full-stack"
   }

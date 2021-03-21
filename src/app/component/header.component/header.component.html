@@ -1,12 +1,24 @@
-<div class="container-fluid header h-100">
-  <div class="row h-100">
+<div class="container-fluid header d-flex align-items-center w-100 h-100">
+  <div class="row h-100 w-100">
     <div class="col-12 h-100 d-flex justify-content-between">
-      <div class="left d-flex w-100">
-        L
+      <div class="header__logo d-flex align-items-center w-100">
+        <a href="#cover">
+          <img src="assets/icon/icon-me.png">
+        </a>
       </div>
-      <div class="mid d-flex w-100">
-        M
+
+      <div class="header__menu d-flex justify-content-center align-items-center h-100 w-100">
+        <ul class="d-flex flex-row align-items-center p-0 m-0 h-100">
+          <li class="header__menu__item h-100 d-flex align-items-center px-5">
+            <a href="#about">
+              <b>
+                Sobre mi
+              </b>
+            </a>
+          </li>
+        </ul>
       </div>
+
       <div class="header__contact d-flex justify-content-end align-items-center w-100">
         <div class="header__contact__button">
           <a href="mailto:alexsv1996@gmail.com">
@@ -15,9 +27,10 @@
           </a>
         </div>
       </div>
-      <div class="header__settings d-flex">
+
+      <div class="header__settings d-flex align-items-center">
         <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>settings</mat-icon>
+          <mat-icon>arrow_drop_down</mat-icon>
         </button>
       </div>
     </div>
@@ -28,7 +41,7 @@
   <form [formGroup]="form">
     <div class="d-flex flex-column px-3 py-2"
          (click)="$event.preventDefault(); $event.stopPropagation();">
-      <b class="mb-2">Idioma</b>
+      <b class="mb-2">{{ "HeaderComponent.LANGUAGE" | translate }}</b>
       <mat-form-field>
         <mat-label>Idioma</mat-label>
         <mat-select formControlName="language">
